@@ -1,4 +1,7 @@
 fn main() {
+    flow();
+    loop_fn();
+
     const MAX_POINTS: u32 = 100_000;
 
     var_test();
@@ -24,8 +27,6 @@ fn main() {
 
     println!("{}", spaces);
 
-    let x = 5;
-
     let y = {
         //評価値を返すものを"式"と呼ぶ
         let x = 3;
@@ -38,7 +39,7 @@ fn main() {
 
     println!("x : {}", x);
 
-    let x =plus_one(x);
+    let x = plus_one(x);
 
     println!("x : {}", x);
 }
@@ -64,7 +65,7 @@ fn var_test() {
 
     let (alpha, beta, gamma) = _tup;
 
-    println!("beta : {}", beta);
+    println!("alpha : {}, beta : {}, gamma : {}", alpha, beta, gamma);
 
     let array = [1, 2, 3, 4, 5];
 
@@ -80,4 +81,53 @@ fn five() -> i32 {
 
 fn plus_one(x: i32) -> i32 {
     x + 1 //文末に ; があると文として処理され、戻り値が得られない
+}
+
+fn flow() {
+    let number = 7;
+
+    if number < 5 {
+        println!("条件はTrue");
+    } else {
+        println!("条件はFalse");
+    }
+
+    let number = 3;
+
+    if number != 0 {
+        println!("数字は0以外のなにかです");
+    }
+
+    let condition = true;
+    let number = if condition { 5 } else { 6 }; // ifは式なので右辺に入れられる
+
+    println!("number : {}", number);
+}
+
+fn loop_fn() {
+    loop {
+        println!("again!");
+        break;
+    }
+
+    let mut number =3;
+
+    while number !=0 {
+        println!("{}!",number);
+
+        number = number-1;
+        
+    }
+    println!("発射!!");
+
+    let array = [10,20,30,40,50];
+
+    for element in array.iter(){
+        println!("数字は{}",element);
+    }
+
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("LIFTOFF!!!");
 }
