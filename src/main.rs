@@ -23,6 +23,24 @@ fn main() {
     let spaces = spaces.len(); //変数は不変のまま変更を加えられる
 
     println!("{}", spaces);
+
+    let x = 5;
+
+    let y = {
+        //評価値を返すものを"式"と呼ぶ
+        let x = 3;
+        x + 1
+    };
+
+    println!("y : {}", y);
+
+    let x = five();
+
+    println!("x : {}", x);
+
+    let x =plus_one(x);
+
+    println!("x : {}", x);
 }
 
 fn var_test() {
@@ -44,13 +62,22 @@ fn var_test() {
 
     let _tup: (i32, f64, u8) = (500, 6.4, 1);
 
-    let (alpha,beta,gamma) = _tup;
+    let (alpha, beta, gamma) = _tup;
 
-    println!("beta : {}",beta);
+    println!("beta : {}", beta);
 
     let array = [1, 2, 3, 4, 5];
 
     let first = array[0];
 
-    println!("array[0] : {}",first);
+    println!("array[0] : {}", first);
+}
+
+fn five() -> i32 {
+    // i32は戻り値の型指定
+    5
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1 //文末に ; があると文として処理され、戻り値が得られない
 }
